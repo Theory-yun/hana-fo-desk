@@ -1,0 +1,11 @@
+{
+  "name": "hana-fo-desk",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "HANA Family Office WM Research Desk — 서버사이드 데이터 수집 기반 PB 브리핑 포털",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "sync": "node scripts/fetch-market-data.mjs"
+  }
+}

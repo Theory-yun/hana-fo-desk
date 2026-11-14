@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HANA Family Office · WM Research Desk</title>
+<meta name="description" content="하나증권 패밀리오피스 PB를 위한 데일리 마켓 브리핑 포털. 시세·뉴스는 GitHub Actions가 주기적으로 수집합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <div class="ticker-ribbon no-print">
+    <div id="ticker-track" class="ticker-track"></div>
+  </div>
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-id">
+        <span class="masthead-mark serif">HANA Family Office</span>
+        <span class="masthead-desk">WM Research Desk</span>
+      </div>
+      <div class="masthead-meta no-print">
+        <span id="sync-pill" class="sync-pill"><span class="dot"></span><span id="sync-label">동기화 확인중…</span></span>
+        <button type="button" class="btn-ghost-invert" id="btn-refresh" data-action="refresh">동기화 새로고침</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav no-print">
+    <div class="nav-inner">
+      <button type="button" class="nav-btn active" data-tab="tab-dashboard">종합 대시보드</button>
+      <button type="button" class="nav-btn" data-tab="tab-indicators">주요 지표</button>
+      <button type="button" class="nav-btn" data-tab="tab-newsroom">마켓 뉴스룸</button>
+      <button type="button" class="nav-btn" data-tab="tab-insight">F/O Insight</button>
+      <button type="button" class="nav-btn" data-tab="tab-board">게시판</button>
+    </div>
+  </nav>
+
+  <!-- ===================== 탭 1. 종합 대시보드 ===================== -->
+  <main id="tab-dashboard" class="tab-section active">
+
+    <div class="row-between no-print" style="margin-bottom:16px;">
+      <div class="pill-row" style="gap:8px;">
+        <button type="button" class="pill edition-btn active" id="btn-ed-morning" data-action="edition-morning">모닝 에디션 · 글로벌</button>
+        <button type="button" class="pill edition-btn" id="btn-ed-evening" data-action="edition-evening">이브닝 에디션 · 국내</button>
+      </div>
+      <div class="pill-row" style="gap:8px;">
+        <button type="button" class="btn-secondary" id="btn-edit-briefing" data-action="toggle-edit">문구 편집</button>
+        <button type="button" class="btn-secondary" data-action="copy-kakao">카카오톡 브리핑 복사</button>
+        <button type="button" class="btn-primary" data-action="print-report">손님용 보고서 인쇄/PDF</button>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title">주요 지표 요약</h2>
+        <span class="panel-note">KRX 종가 및 뉴욕증시 마감 기준 · GitHub Actions 주기 수집</span>
+      </div>
+      <div style="padding:16px 18px;">
+        <div id="core-grid" class="core-grid"></div>
+      </div>
+    </section>
+
+    <section class="panel issue-strip">
+      <div class="panel-head">
+        <h2 class="panel-title" id="edition-heading">간밤의 글로벌 핵심 이슈</h2>
+      </div>
+      <div id="issue-list" class="issue-list"></div>
+      <div class="briefing-box">
+        <div class="briefing-label">손님 브리핑 종합 요약</div>
+        <div id="briefing-text" class="editable" contenteditable="false"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title">손님 필독 뉴스 TOP 5</h2>
+        <span class="panel-note">클릭 수 + 최신성 기준 자동 랭킹</span>
+      </div>
+      <div id="top5-list"></div>
+    </section>
+
+    <section class="panel panel-pad">
+      <div class="panel-head" style="border:none; padding:0 0 14px;">
+        <h2 class="panel-title">자산군별 포트폴리오 체크포인트</h2>
+      </div>
+      <div class="pf-grid">
+        <div class="pf-card">
+          <div class="pf-head">채권 · 금리 전략</div>
+          <div class="pf-title editable" contenteditable="false">저쿠폰채 중심 절세형 편입 검토</div>
+          <p class="pf-body editable" contenteditable="false">인플레이션 경로가 안정되는 국면에서는 과표가 작은 저쿠폰 국고채·우량 회사채로 확정수익을 고정하는 전략이 유효합니다.</p>
+        </div>
+        <div class="pf-card">
+          <div class="pf-head">외환 · 글로벌 주식</div>
+          <div class="pf-title editable" contenteditable="false">변동성 구간 분할 접근 & 환헤지 점검</div>
+          <p class="pf-body editable" contenteditable="false">글로벌 대형주 조정 구간에서는 실적 기반 분할 매수와 원/달러 환노출 비중의 중립 유지를 제안합니다.</p>
+        </div>
+        <div class="pf-card">
+          <div class="pf-head">TAX · 가업승계</div>
+          <div class="pf-title editable" contenteditable="false">조정기 활용 증여·신탁 설계 적기</div>
+          <p class="pf-body editable" contenteditable="false">자산가격 단기 조정기는 증여세 과세가액을 낮출 수 있는 기회이며, 유언대용신탁 구조화를 함께 점검할 시점입니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel panel-pad">
+      <div class="panel-head" style="border:none; padding:0 0 14px;">
+        <h2 class="panel-title" id="cal-title">매크로 캘린더</h2>
+      </div>
+      <div class="calendar-layout">
+        <div>
+          <div class="cal-dow"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+          <div id="cal-grid" class="cal-grid"></div>
+        </div>
+        <div id="event-list" class="event-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== 탭 2. 주요 지표 ===================== -->
+  <section id="tab-indicators" class="tab-section">
+    <div class="panel panel-pad">
+      <div id="sub-tabs" class="pill-row sub-tabs"></div>
+
+      <div class="chart-head">
+        <div>
+          <span id="chart-title" class="chart-title serif">—</span>
+          <span id="chart-sub" class="chart-sub"></span>
+        </div>
+        <div>
+          <span id="chart-price" class="chart-price tabular">—</span>
+          <span id="chart-chg" class="chart-chg tabular"></span>
+        </div>
+      </div>
+      <div id="chart-box" class="chart-box"></div>
+      <div class="range-row">
+        <button type="button" class="range-btn active" data-range="1M">1개월</button>
+        <button type="button" class="range-btn" data-range="1Y">1년</button>
+      </div>
+
+      <table class="inst-table">
+        <thead><tr><th>지표명</th><th style="text-align:right;">현재가</th><th style="text-align:right;">전일대비</th></tr></thead>
+        <tbody id="inst-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===================== 탭 3. 마켓 뉴스룸 ===================== -->
+  <section id="tab-newsroom" class="tab-section">
+    <div class="panel panel-pad">
+      <div class="row-between" style="margin-bottom:14px;">
+        <div id="news-filters" class="pill-row"></div>
+        <div style="display:flex; gap:6px;">
+          <input type="text" id="news-search" class="input-field" placeholder="키워드 검색 (예: 유언대용신탁)">
+          <button type="button" class="btn-primary" id="btn-search-news">검색</button>
+        </div>
+      </div>
+      <div id="newsroom-list"></div>
+      <div style="text-align:center; padding-top:16px; border-top:1px solid var(--line); margin-top:10px;">
+        <div id="news-count-info" style="font-size:12px; color:var(--ink-faint); margin-bottom:10px;"></div>
+        <button type="button" id="btn-load-more" class="btn-secondary" data-action="load-more-news">기사 더 보기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 탭 4. F/O Insight ===================== -->
+  <section id="tab-insight" class="tab-section">
+    <div class="panel panel-pad">
+      <div id="insight-filters" class="pill-row" style="margin-bottom:14px;"></div>
+      <div style="overflow-x:auto;">
+        <table class="data-table">
+          <thead>
+            <tr><th style="width:90px;">중요도</th><th style="width:150px;">분류</th><th>보고서 명칭 및 핵심 시사점</th><th style="width:160px;">발행 기관</th><th style="width:110px;">원문</th></tr>
+          </thead>
+          <tbody id="insight-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 탭 5. 게시판 ===================== -->
+  <section id="tab-board" class="tab-section">
+    <div class="panel panel-pad">
+      <div class="row-between" style="margin-bottom:14px;">
+        <h2 class="panel-title">F/O 본사 & PB 소통 게시판</h2>
+        <button type="button" class="btn-primary" data-action="toggle-write">새 글 등록</button>
+      </div>
+      <div id="board-write-form" class="panel panel-pad board-write-form" style="margin-bottom:16px; background:var(--paper);">
+        <div class="form-row">
+          <select id="post-category" class="input-field">
+            <option value="본사공지">본사공지</option>
+            <option value="시황브리핑">시황브리핑</option>
+            <option value="PB질의/요청">PB질의/요청</option>
+            <option value="세무/부동산">세무/부동산</option>
+          </select>
+          <input type="text" id="post-author" class="input-field" placeholder="작성자" style="flex:1; min-width:160px;">
+        </div>
+        <div class="form-row"><input type="text" id="post-title" class="input-field" placeholder="제목" style="width:100%;"></div>
+        <textarea id="post-content" class="textarea-field" placeholder="내용을 입력해 주세요." style="margin-bottom:10px;"></textarea>
+        <div style="display:flex; justify-content:flex-end; gap:8px;">
+          <button type="button" class="btn-secondary" data-action="cancel-write">취소</button>
+          <button type="button" class="btn-primary" data-action="save-post">게시글 저장</button>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th style="width:110px;">분류</th><th>제목</th><th style="width:160px;">작성자</th><th style="width:100px;">작성일</th></tr></thead>
+        <tbody id="board-body"></tbody>
+      </table>
+      <div id="board-detail" style="display:none; margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <footer class="no-print" style="max-width:1240px; margin:0 auto; padding:10px 28px 40px; font-size:11.5px; color:var(--ink-faint);">
+    © <span id="footer-year"></span> HANA Family Office WM Research Desk · 본 자료는 투자 참고용이며 투자 결과에 대한 법적 책임의 증빙자료로 사용될 수 없습니다.
+  </footer>
+
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
