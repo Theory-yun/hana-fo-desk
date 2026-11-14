@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>2026 남해·여수·전주 가족 힐링 여행 가이드북</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  @page {
+    size: A4 portrait;
+    margin: 14mm 15mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    color: #2D3748;
+    background-color: #FFFFFF;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 265mm;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .page:last-child {
+    page-break-after: avoid;
+  }
+
+  /* Header & Footer */
+  .page-header {
+    border-bottom: 2px solid #2B6CB0;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .page-header h2 {
+    margin: 0;
+    font-size: 15pt;
+    color: #1A365D;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .page-header .tag {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #2B6CB0;
+    background: #EBF8FF;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .page-footer {
+    border-top: 1px solid #E2E8F0;
+    padding-top: 6px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #718096;
+  }
+
+  /* Cover Styling (Page 1) */
+  .cover-title-box {
+    background: linear-gradient(135deg, #1A365D 0%, #2B6CB0 100%);
+    color: white;
+    padding: 22px 24px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
+  .cover-title-box h1 {
+    margin: 0 0 6px 0;
+    font-size: 20pt;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+  }
+
+  .cover-title-box p {
+    margin: 0;
+    font-size: 10pt;
+    opacity: 0.9;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 9pt;
+  }
+
+  th, td {
+    border: 1px solid #CBD5E0;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #EDF2F7;
+    color: #2D3748;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  /* Cards & Sections */
+  .section-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #2C5282;
+    margin: 10px 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .timeline-list {
+    margin: 0 0 10px 0;
+    padding-left: 0;
+    list-style: none;
+    font-size: 9pt;
+  }
+
+  .timeline-list li {
+    padding: 3px 0;
+    border-bottom: 1px dashed #E2E8F0;
+    display: flex;
+  }
+
+  .timeline-list li .time {
+    width: 105px;
+    font-weight: 700;
+    color: #2B6CB0;
+    flex-shrink: 0;
+  }
+
+  .spot-box {
+    background: #F7FAFC;
+    border-left: 4px solid #3182CE;
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 10px;
+    font-size: 8.8pt;
+  }
+
+  .spot-box h4 {
+    margin: 0 0 4px 0;
+    color: #1A365D;
+    font-size: 9.5pt;
+  }
+
+  /* Dining Cards */
+  .dining-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .dining-card {
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    padding: 8px;
+    background: #FFFFFF;
+    font-size: 8.5pt;
+  }
+
+  .dining-card.highlight {
+    border-color: #BEE3F8;
+    background: #F0F9FF;
+  }
+
+  .dining-badge {
+    display: inline-block;
+    font-size: 7.5pt;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  .badge-lunch { background: #FEFCBF; color: #744210; }
+  .badge-dinner { background: #E9D8FD; color: #44337A; }
+  .badge-opt1 { background: #C6F6D5; color: #22543D; }
+
+  .tip-box {
+    background: #FFF5F5;
+    border: 1px solid #FEB2B2;
+    color: #9B2C2C;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 8.5pt;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: 전체 스케줄 총괄표 -->
+<div class="page">
+  <div>
+    <div class="cover-title-box">
+      <h1>남해 · 여수 · 전주 가족 힐링 여행북</h1>
+      <p>기간: 2026. 09. 20 (일) ~ 09. 26 (토) | 6박 7일 | 동행: 부부 & 초등 5학년 딸</p>
+      <p style="font-size: 8.5pt; margin-top: 4px; opacity: 0.85;">동선: 의왕 오전동 ➔ 남해 쏠비치(3박) ➔ 여수 라테라스(2박) ➔ 전주 베스트웨스턴(1박) ➔ 의왕 복귀</p>
+    </div>
+
+    <div class="section-title">📌 전체 일정 한눈에 보기 (At a Glance)</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">일자</th>
+          <th style="width: 13%;">도시/숙소</th>
+          <th style="width: 45%;">핵심 일정 & 테마</th>
+          <th style="width: 28%;">식사 플랜 (중식 / 석식)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="center"><b>1일차</b><br>(9/20 일)</td>
+          <td align="center"><b>남해</b><br>쏠비치</td>
+          <td>• 04:00 의왕 출발 ➔ 08:00 번호표 발권<br>• 설리스카이워크 ➔ 12:00 방배정 ➔ 독일마을 ➔ 15:00 입실 쉼</td>
+          <td><b>중:</b> 독일마을(슈바인학센/수제버거)<br><b>석:</b> 쏠비치 레스토랑 바래(뚝배기)</td>
+        </tr>
+        <tr>
+          <td align="center"><b>2일차</b><br>(9/21 월)</td>
+          <td align="center"><b>남해</b><br>쏠비치</td>
+          <td>• 금산 보리암 숲길 산책 & 금산산장<br>• <b>[골든타임] 13:40 온수 인피니티풀 ➔ 17:00 야외 스케이트</b></td>
+          <td><b>중:</b> 금산산장 컵라면·파전/칼국수<br><b>석:</b> 쏠비치 BBQ 다이닝/통갈치구이</td>
+        </tr>
+        <tr>
+          <td align="center"><b>3일차</b><br>(9/22 화)</td>
+          <td align="center"><b>남해</b><br>쏠비치</td>
+          <td>• <b>딸아이 생일 Day 🎂</b><br>• 남면 드라이브 ➔ 다랭이마을 '카페 톨' 오션뷰 생일파티 ➔ 만찬</td>
+          <td><b>중:</b> 헐스밴드 화덕피자/한우구이<br><b>석:</b> 쏠비치 메인 디너 코스 만찬</td>
+        </tr>
+        <tr>
+          <td align="center"><b>4일차</b><br>(9/23 수)</td>
+          <td align="center"><b>여수</b><br>라테라스</td>
+          <td>• 11:00 쏠비치 퇴실 ➔ 이순신대교 바다 드라이브<br>• 돌산 오션뷰 카페 ➔ <b>라테라스 15:40 입실 & 온전한 쉼</b></td>
+          <td><b>중:</b> 돌산 갓갈치조림/한일관 한정식<br><b>석:</b> 라테라스 씨푸드그릴/생선구이</td>
+        </tr>
+        <tr>
+          <td align="center"><b>5일차</b><br>(9/24 목)</td>
+          <td align="center"><b>여수</b><br>라테라스</td>
+          <td>• 오동도 동백열차 & 숲길 산책 ➔ 고소동 오션뷰 점심<br>• 여수 해상케이블카 ➔ 리조트 테라스 힐링</td>
+          <td><b>중:</b> 포트타운 다이닝(파스타)/소월<br><b>석:</b> 갯벌소리 하모(갯장어) 샤브샤브</td>
+        </tr>
+        <tr>
+          <td align="center"><b>6일차</b><br>(9/25 금)</td>
+          <td align="center"><b>전주</b><br>베스트웨스턴</td>
+          <td>• 전주 이동(1시간 40분) ➔ 호텔 입실 & 2시간 낮잠 체력 충전<br>• <b>선선한 늦은 오후 한옥마을 & 경기전 산책 & 오목대 야경</b></td>
+          <td><b>중:</b> 교동떡갈비/한국집 전통비빔밥<br><b>석:</b> 기와 양념 석갈비 한상</td>
+        </tr>
+        <tr>
+          <td align="center"><b>7일차</b><br>(9/26 토)</td>
+          <td align="center"><b>귀가</b><br>의왕 복귀</td>
+          <td>• 11:00 퇴실 & 짐 보관 ➔ <b>[우천 대비 실내] 어진박물관·전주난장</b><br>• 비멍 뷰카페 ➔ 마지막 한우 만찬 ➔ <b>23:00 심야 출발 (정체 0%)</b></td>
+          <td><b>조:</b> 현대옥 전주 콩나물국밥<br><b>중:</b> 족떡이네/반야돌솥밥<br><b>석:</b> 벽계가든 한우 불고기 전골</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title">💡 이번 여행 3대 핵심 원칙</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 8.5pt;">
+      <div style="background: #F7FAFC; border: 1px solid #E2E8F0; padding: 8px; border-radius: 6px;">
+        <b>1. 여유 있는 슬로우 템포</b><br>무리한 하루 3~4곳 관광 배제. 오전 기상 여유 확보, 오후 리조트/호텔 쉼 필수.
+      </div>
+      <div style="background: #F7FAFC; border: 1px solid #E2E8F0; padding: 8px; border-radius: 6px;">
+        <b>2. 위생 우선 & 익힌 요리</b><br>노포식당 배제, 현대적 위생 식당 선정. 날것 대신 익힌 전복, 갈치, 샤브, 고기 위주.
+      </div>
+      <div style="background: #F7FAFC; border: 1px solid #E2E8F0; padding: 8px; border-radius: 6px;">
+        <b>3. 스마트한 인파·정체 회피</b><br>쏠비치 수영장 월요일 낮 공략, 연휴 마지막 날 전주 23시 심야 출발로 고속도로 정체 회피.
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>2026 남해 · 여수 · 전주 가족 힐링 여행</span>
+    <span>Page 1</span>
+  </div>
+</div>
+
+<!-- PAGE 2: 1일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 1. 남해 쏠비치 입성 & 힐링 드라이브</h2>
+      <span class="tag">9월 20일 (일요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">04:00 ~ 08:00</span><span><b>의왕 오전동 출발 ➔ 쏠비치 남해 도착</b> (약 350km, 새벽 무정차 3시간 50분)</span></li>
+      <li><span class="time">08:00 ~ 08:30</span><span><b>쏠비치 웰컴센터 도착 즉시 번호표 발권</b> 후 로비 둘러보기</span></li>
+      <li><span class="time">08:30 ~ 09:40</span><span>미조항 인근 아침 식사 (따뜻한 전복죽 또는 1인 해물솥밥)</span></li>
+      <li><span class="time">10:00 ~ 11:30</span><span><b>설리스카이워크 & 송정솔바람해변 산책</b> (차로 5분 거리 바다 뷰 힐링 티타임)</span></li>
+      <li><span class="time">11:50 ~ 12:30</span><span><b>쏠비치 귀환 & 12:00 번호표 순서 정식 객실 배정</b> (오션뷰/고층 확보)</span></li>
+      <li><span class="time">12:30 ~ 14:30</span><span>독일마을 이동 (차로 15분) ➔ 점심 식사 & 이국적인 붉은 지붕 마을 산책</span></li>
+      <li><span class="time">15:00 ~ 17:30</span><span><b>쏠비치 입실 완료 & 낮잠 휴식</b> (새벽 운전 누적 피로 완벽 회복)</span></li>
+      <li><span class="time">18:00 ~ 20:00</span><span>리조트 내 바래 레스토랑 저녁 식사 & 은은한 리조트 야경 산책</span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 쏠비치 남해 웰컴센터 번호표 & 방배정</h4>
+      08:00 키오스크 순번표 발행 ➔ 12:00 번호 순 정식 객실 지정(오션뷰 선점의 핵심) ➔ 15:00 객실 키 수령.
+    </div>
+    <div class="spot-box">
+      <h4>• 독일마을</h4>
+      파독 광부와 간호사들이 정착한 아름다운 해안 마을. 붉은 기와지붕과 푸른 바다가 어우러져 사진 찍기 좋습니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">아침 1안 (추천)</span>
+        <b>어글리라이스 본점</b> (미조면)<br>
+        • 전복해물솥밥, 차돌솥밥 (1인 정갈 반상)<br>
+        • 신축 모던 인테리어, 완벽한 청결
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">아침 2안</span>
+        <b>해사랑전복마을</b> (미조면)<br>
+        • 통창 오션뷰, 전복죽 & 버터전복구이 세트<br>
+        • 새벽 빈속에 부드럽고 따뜻한 한 상
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>부어스트라덴</b> (독일마을)<br>
+        • 슈바이네 학센(독일식 구운 족발), 수제 소시지<br>
+        • 테라스 뷰 우수, 5학년 딸 선호도 최고
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>완벽한인생 남해점</b><br>
+        • 갈비학센, 하우스 수제버거, 파스타<br>
+        • 대형 브루어리 레스토랑, 높은 층고와 쾌적함
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>쏠비치 레스토랑 '바래'</b><br>
+        • 전복해물뚝배기, 전복 크림 리조또, 한우 반상<br>
+        • 리조트 내 최고급 위생, 슬리퍼 방문 가능
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>설리청사포</b> (쏠비치 2분)<br>
+        • 비린내 없는 양념 장어구이, 낙지볶음<br>
+        • 리조트 입구 위치, 불향 가득한 익힌 요리
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 1 · 남해 쏠비치 입성</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+<!-- PAGE 3: 2일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 2. 금산 보리암 절경 & 쏠비치 부대시설 골든타임</h2>
+      <span class="tag">9월 21일 (월요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">08:30 ~ 09:40</span><span>늦잠 후 리조트 여유로운 조식 식사</span></li>
+      <li><span class="time">09:40 ~ 10:10</span><span>이동: 쏠비치 ➔ 금산 보리암 제1주차장 (차로 25분)</span></li>
+      <li><span class="time">10:10 ~ 12:20</span><span><b>금산 보리암 산책 & 금산산장 절경 감상</b> (셔틀버스로 완만한 평지 숲길 15분 도보)</span></li>
+      <li><span class="time">12:20 ~ 12:50</span><span>쏠비치 리조트 복귀</span></li>
+      <li><span class="time">12:50 ~ 13:40</span><span>가벼운 점심 식사 후 수영복 환복</span></li>
+      <li><span class="time">13:40 ~ 16:00</span><span><b>★사람 적은 골든타임★ 쏠비치 온수 인피니티풀 물놀이</b> (퇴실-입실 사이 전세 수영)</span></li>
+      <li><span class="time">16:00 ~ 17:00</span><span>따뜻한 샤워 후 객실 침대에서 꿀맛 휴식 및 티타임</span></li>
+      <li><span class="time">17:00 ~ 18:30</span><span><b>★노을 타임★ 사계절 야외 스케이트장 '아이스비치'</b> (바다 위 스케이팅 이색 체험)</span></li>
+      <li><span class="time">18:30 ~ 20:30</span><span>리조트 내 BBQ 다이닝 만찬 및 저녁 휴식</span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 금산 보리암 & 금산산장</h4>
+      제1주차장에서 셔틀버스를 타면 가파른 오르막 없이 완만한 탐방로로 보리암에 도착합니다. 절벽 위 금산산장 야외 평상에서 내려다보는 다도해 파노라마는 남해 제일의 절경입니다.
+    </div>
+    <div class="spot-box">
+      <h4>• 아이스비치 (사계절 야외 스케이트장)</h4>
+      호텔 3층 야외에 위치한 특수 친환경 패널 링크. 얼음이 아니라 옷이 젖거나 차갑지 않아 초등학생 아이가 타기에 매우 안전합니다. <b>(필수 팁: 장갑 착용 필수이므로 개인 장갑을 미리 챙겨오세요!)</b>
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>금산산장 뷰 컵라면 & 해물파전</b><br>
+        • 절벽 평상에서 즐기는 이색 야외 간식<br>
+        • 13:40 풀장 골든타임을 맞추기 위한 최적 동선
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>상주면 바지락 해물칼국수</b><br>
+        • 보리암 하산 길목 위치, 맑고 시원한 국물<br>
+        • 수제 왕만두와 함께 따뜻하고 속 편한 식사
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>쏠비치 남해 BBQ 다이닝 / 뷔페</b><br>
+        • 스케이트 후 엘리베이터로 바로 이동<br>
+        • 고품격 그릴 바비큐 & 특급 위생 관리
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>미조항 통갈치구이 전문점</b> (차로 7분)<br>
+        • 회 없이 노릇하게 통째로 구워낸 은빛 갈치구이<br>
+        • 전복버터구이와 솥밥이 곁들여진 정갈한 한상
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 2 · 쏠비치 골든타임</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+<!-- PAGE 4: 3일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 3. 딸 생일 Day 🎂 다랭이마을 오션뷰 파티</h2>
+      <span class="tag">9월 22일 (화요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">09:00 ~ 10:30</span><span>생일 아침 맞이 여유로운 기상 & 조식 식사</span></li>
+      <li><span class="time">10:30 ~ 11:20</span><span>이동: 쏠비치 ➔ 남면 해안도로 (차로 35분 드라이브)</span></li>
+      <li><span class="time">11:30 ~ 13:00</span><span><b>다랭이마을 '카페 톨' 오션뷰 정원 생일 파티 & 티타임</b></span></li>
+      <li><span class="time">13:00 ~ 14:30</span><span>생일 점심 식사: 장항숲 앞 통창 화덕피자 '헐스밴드' (또는 한우구이)</span></li>
+      <li><span class="time">14:30 ~ 15:30</span><span>다랭이마을 해안 구름다리 산책 (또는 바다 정원 '섬이진 정원')</span></li>
+      <li><span class="time">15:30 ~ 16:15</span><span>쏠비치 리조트 복귀</span></li>
+      <li><span class="time">16:30 ~ 18:30</span><span>리조트 오션 산책로 거닐기, 딸아이 자유시간 및 휴식</span></li>
+      <li><span class="time">18:30 ~ 20:30</span><span><b>딸아이를 위한 특별한 생일 디너 만찬</b></span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 다랭이마을 카페 톨 (Cafe Tol) - 생일 파티 추천</h4>
+      계단식 다랭이 논과 에메랄드빛 바다가 파노라마로 내려다보이는 동화 같은 야외 정원 카페. 아기자기한 오두막과 정원 테이블이 있어 5학년 딸아이 생일 기념사진을 남기기에 남해에서 가장 아름다운 곳입니다. (유자스무디, 쌀식빵, 디저트류)
+    </div>
+    <div class="spot-box">
+      <h4>• 생일 연출 팁</h4>
+      쏠비치 베이커리에서 작은 미니 케이크나 조각케이크를 포장해 가고, 예쁜 숫자 초와 토퍼를 꽂아 정원 테이블에서 바다를 배경으로 사진을 찍어주시면 잊지 못할 추억이 됩니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>헐스밴드 (Hulse Band)</b> (서면 장항숲)<br>
+        • 바다 바로 앞 화덕피자, 수제 젤라또, 파스타<br>
+        • 모던한 콘크리트 외관과 위생적인 오픈 키친
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>남해축협 한우프라자</b><br>
+        • 1등급 남해 암소 한우 숯불구이, 불고기 전골<br>
+        • 생일날 가장 든든하고 깨끗한 한우 전문점
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>쏠비치 남해 메인 디너 코스</b><br>
+        • 스테이크 코스 또는 프리미엄 해물 스튜 코스<br>
+        • 딸 생일 저녁을 가장 품격 있게 기념하는 호텔식
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>힙한식 (Hip Hansik)</b> (미조면)<br>
+        • 무쇠솥 전복솥밥, 바삭 해물파전, 양념 목살구이<br>
+        • 감각적인 플레이팅과 깔끔한 위생 (캐치테이블)
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 3 · 딸 생일 Day</span>
+    <span>Page 4</span>
+  </div>
+</div>
+
+<!-- PAGE 5: 4일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 4. 남해 ➔ 여수 이동 & 라테라스 오션뷰 쉼</h2>
+      <span class="tag">9월 23일 (수요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">09:30 ~ 11:00</span><span>쏠비치 아침 식사 및 짐 정리 후 <b>11:00 체크아웃</b></span></li>
+      <li><span class="time">11:00 ~ 12:40</span><span><b>남해 ➔ 여수 이동</b> (이순신대교 경유 시원한 해상 드라이브, 1시간 35분 소요)</span></li>
+      <li><span class="time">12:40 ~ 14:10</span><span>여수 돌산 진입 전 정갈한 점심 식사 (돌산 갓갈치조림 or 한정식)</span></li>
+      <li><span class="time">14:20 ~ 15:30</span><span>돌산 해안가 대형 오션뷰 카페 티타임 (바다 보며 디저트 휴식)</span></li>
+      <li><span class="time">15:40 ~ 18:00</span><span><b>여수 라테라스 리조트 체크인 & 온전한 쉼</b> (관람/물놀이 배제, 발코니 힐링)</span></li>
+      <li><span class="time">18:00 ~ 20:00</span><span>리조트 내 씨푸드 그릴 디너 또는 돌산도 인근 생선구이 저녁 식사</span></li>
+      <li><span class="time">20:00 ~</span><span>여수 밤바다 조명 야경 산책 후 편안한 휴식</span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 이순신대교 해상 드라이브</h4>
+      광양과 여수를 연결하는 초대형 현수교. 바다 위를 가로지르는 탁 트인 시야로 이동 자체가 멋진 관광이 됩니다.
+    </div>
+    <div class="spot-box">
+      <h4>• 라테라스 리조트 온전한 휴식 (피로도 제로)</h4>
+      복잡한 실내 전시나 번거로운 물놀이를 과감히 빼고, 쾌적한 객실 침대와 바다 전망 발코니에서 커피를 마시며 여독을 푸는 여유로운 힐링 시간입니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>정가네 갓갈치조림</b> (돌산읍)<br>
+        • 돌산 갓김치 갈치조림, 화덕 모둠 생선구이<br>
+        • 신축 건물 2층 위치, 비린내 전혀 없는 청결 매장
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>여수 한일관 한정식</b> (봉산동)<br>
+        • 떡갈비, 전복구이, 생선구이 등 익힌 남도 특선<br>
+        • 대형 단독 건물에 전용 주차장 완비된 명가
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>라테라스 씨푸드 앤 그릴</b><br>
+        • 바비큐 플래터, 화덕 수제 피자, 파스타<br>
+        • 이동 없이 리조트 오션 테라스에서 즐기는 디너
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>소미온 돌산본점</b> (차로 7분)<br>
+        • 화덕 생선구이 한상, 수제 떡갈비 정식<br>
+        • 신축 대형 한식당으로 넓은 주차장과 쾌적한 실내
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 4 · 여수 라테라스 쉼</span>
+    <span>Page 5</span>
+  </div>
+</div>
+
+<!-- PAGE 6: 5일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 5. 오동도 동백 숲길 & 해상케이블카</h2>
+      <span class="tag">9월 24일 (목요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">09:30 ~ 11:00</span><span>늦잠 후 리조트 브런치 & 여유로운 외출 준비</span></li>
+      <li><span class="time">11:00 ~ 11:20</span><span>이동: 라테라스 ➔ 오동도 공영주차타워 (차로 15분)</span></li>
+      <li><span class="time">11:20 ~ 13:00</span><span><b>오동도 동백열차 탑승 & 울창한 동백나무 숲길 산책</b></span></li>
+      <li><span class="time">13:00 ~ 14:30</span><span>점심 식사: 고소동/엑스포 바다 뷰 다이닝 (파스타/리조또 or 한식)</span></li>
+      <li><span class="time">14:30 ~ 16:00</span><span><b>여수 해상케이블카</b> (자산탑승장 ➔ 돌산탑승장, 다도해 파노라마 조망)</span></li>
+      <li><span class="time">16:00 ~ 18:30</span><span>라테라스 복귀 후 티타임 & 발코니 휴식</span></li>
+      <li><span class="time">18:30 ~ 20:30</span><span>저녁 식사: 따뜻하게 데쳐 먹는 하모(갯장어) / 전복 샤브샤브 만찬</span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 오동도 동백나무 숲길</h4>
+      귀여운 동백열차를 타고 방파제를 건너 섬에 진입합니다. 섬 내부 전체가 평탄한 나무 데크길로 이루어져 있어 걷기 편안하며, 시원한 바닷바람이 부는 '용굴'과 동백 숲 그늘이 일품입니다.
+    </div>
+    <div class="spot-box">
+      <h4>• 여수 해상케이블카</h4>
+      바다 위 80m 높이에서 여수 앞바다와 거북선대교를 가로지릅니다. 가족 모두가 감탄하는 탁 트인 시야를 선사합니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>포트타운 다이닝</b> (엑스포 인근)<br>
+        • 통창 오션뷰, 익힌 해산물 토마토 파스타, 스테이크<br>
+        • 호텔급 위생 시스템과 넓은 테이블 간격
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>소월</b> (고소동 벽화마을)<br>
+        • 오션뷰 캐주얼 한식, 전복 덮밥, 떡갈비 반상<br>
+        • 단정하고 깔끔한 차림새의 모던 한식당
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>여수 갯벌소리</b><br>
+        • 맑은 육수에 익혀 먹는 하모(갯장어) 샤브샤브<br>
+        • 날것 없이 신선한 채소와 건강하게 즐기는 보양식
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>돌산 명동게장 & 갈치조림</b><br>
+        • 모둠 생선구이 정식, 부드러운 갈치조림<br>
+        • 넓고 청결한 대형 매장, 5학년 딸 밥도둑 메뉴
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 5 · 여수 바다 & 숲</span>
+    <span>Page 6</span>
+  </div>
+</div>
+
+<!-- PAGE 7: 6일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 6. 여수 ➔ 전주 이동 & 한옥마을의 고즈넉한 밤</h2>
+      <span class="tag">9월 25일 (금요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">10:00 ~ 11:00</span><span>라테라스 리조트 짐 정리 후 <b>11:00 체크아웃</b></span></li>
+      <li><span class="time">11:00 ~ 12:45</span><span><b>여수 ➔ 전주 이동</b> (순천-완주 고속도로, 130km, 1시간 40분 소요)</span></li>
+      <li><span class="time">12:45 ~ 14:15</span><span>전주 도착 후 점심 식사: 숯불 떡갈비 또는 전통 비빔밥</span></li>
+      <li><span class="time">14:30 ~ 16:30</span><span><b>베스트웨스턴 플러스 전주 체크인 ➔ 2시간 꿀맛 낮잠 (체력 충전)</b></span></li>
+      <li><span class="time">16:30 ~ 18:30</span><span><b>선선한 한옥마을 & 경기전 대나무 숲 도보 산책</b> (수제만두, 바게트버거 간식)</span></li>
+      <li><span class="time">18:30 ~ 20:30</span><span>기와집에서 석갈비 저녁 식사 ➔ <b>오목대 기와지붕 야경 감상</b> ➔ 호텔 복귀</span></li>
+    </ul>
+
+    <div class="section-title">📍 핵심 스팟 가이드</div>
+    <div class="spot-box">
+      <h4>• 베스트웨스턴 플러스 전주 호텔의 완벽한 입지</h4>
+      한옥마을 입구까지 도보 7분 거리. 주말 주차난이 심한 전주에서 호텔 지하에 안전하게 주차하고 모든 일정을 도보로 여유롭게 다닐 수 있습니다.
+    </div>
+    <div class="spot-box">
+      <h4>• 경기전 대나무 숲 & 오목대 야경</h4>
+      한낮의 더위를 피해 늦은 오후에 방문하면 선선하고 운치 있습니다. 저녁 식사 후 오목대에 오르면 은은한 조명이 켜진 한옥마을의 기와지붕이 한눈에 내려다보입니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>교동떡갈비</b> (한옥마을 내)<br>
+        • 직화 숯불 떡갈비 정식, 미니 비빔밥, 물냉면<br>
+        • 쾌적한 2층 한옥, 5학년 딸아이가 가장 좋아하는 맛
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>한국집 (본점)</b> (전라감영 인근)<br>
+        • 미슐랭 가이드 소개 전통 비빔밥, 불고기전골<br>
+        • 육회 대신 볶은 소고기가 올라간 안심 정통 비빔밥
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>기와 전주한옥마을점</b> (오목대 앞)<br>
+        • 양념 석갈비 한상, 보리굴비 정식<br>
+        • 통창 기와 뷰가 보이는 대형 현대식 청결 식당
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>꽃담집</b> (경기전 옆)<br>
+        • 놋그릇에 차려져 나오는 수제 떡갈비 구이 정식<br>
+        • 예쁜 한옥 정원을 품은 정갈한 패밀리 레스토랑
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 6 · 전주 한옥마을의 밤</span>
+    <span>Page 7</span>
+  </div>
+</div>
+
+<!-- PAGE 8: 7일차 -->
+<div class="page">
+  <div>
+    <div class="page-header">
+      <h2>DAY 7. 우천 대비 실내 힐링 & 23:00 심야 귀경</h2>
+      <span class="tag">9월 26일 (토요일)</span>
+    </div>
+
+    <div class="section-title">🕒 상세 타임라인</div>
+    <ul class="timeline-list">
+      <li><span class="time">09:30 ~ 11:00</span><span>호텔 앞 현대옥에서 따뜻하고 속 편한 콩나물국밥 아침</span></li>
+      <li><span class="time">11:00 ~ 11:30</span><span><b>호텔 체크아웃 & 짐 보관</b> (큰 짐은 호텔에 맡기고 우산 하나로 가볍게 출발)</span></li>
+      <li><span class="time">11:30 ~ 13:00</span><span><b>[실내 전시] 어진박물관</b> (경기전 지하 국보 전시관, 쾌적한 비 피하기)</span></li>
+      <li><span class="time">13:00 ~ 14:15</span><span>점심 식사: 화이트톤의 깔끔한 족떡이네 (떡갈비 & 구운 보쌈)</span></li>
+      <li><span class="time">14:30 ~ 16:30</span><span><b>[실내 테마파크] 전주난장</b> (7080 복고 체험관: 오락기 게임, 달고나 체험)</span></li>
+      <li><span class="time">16:30 ~ 18:30</span><span><b>[비멍 힐링] 전망 카페 or 라한호텔 '전주산책' 북카페</b> (기와 빗소리 감상)</span></li>
+      <li><span class="time">18:30 ~ 19:30</span><span>풍년제과 본점에서 가족 간식용 수제 초코파이 구매</span></li>
+      <li><span class="time">19:30 ~ 21:00</span><span>전주 마지막 저녁 식사: 벽계가든 한우 불고기 전골 (속 편한 디너)</span></li>
+      <li><span class="time">21:00 ~ 22:50</span><span>호텔 라운지/24시 카페에서 차 마시며 운전 전 최종 체력 비축</span></li>
+      <li><span class="time">23:00 ~ 01:20</span><span><b>[심야 귀가] 전주 출발 ➔ 의왕 오전동 도착 (추석 상행선 정체 완전 해소!)</b></span></li>
+    </ul>
+
+    <div class="section-title">📍 우천 대비 실내 명소 가이드</div>
+    <div class="spot-box">
+      <h4>• 어진박물관 (실내 국보 전시관)</h4>
+      경기전 경내 지하에 위치한 현대식 신축 박물관. 태조 이성계의 국보 어진 진본과 왕실 유물이 전시되어 있으며, 완벽한 실내 항온·항습 시설로 비 오는 날 초등 5학년 역사 탐방에 최고입니다.
+    </div>
+    <div class="spot-box">
+      <h4>• 전주난장 (실내 복고 체험장)</h4>
+      옛 골목길, 만화방, 교실, 오락실을 재현한 실내 테마파크. 옛날 오락기 무료 게임, 두더지 잡기 등 비 맞지 않고 아이와 부모 모두 즐길 수 있는 필수 코스입니다.
+    </div>
+
+    <div class="section-title">🍽️ 안심 식당 플랜 (1안 ~ 3안)</div>
+    <div class="dining-grid">
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">점심 1안 (추천)</span>
+        <b>족떡이네</b> (한옥마을 중심)<br>
+        • 떡갈비 구이 정식, 부드러운 구운 보쌈<br>
+        • 화이트톤의 모던하고 청결한 매장 인테리어
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">점심 2안</span>
+        <b>반야돌솥밥 (본점)</b><br>
+        • 따뜻한 영양 돌솥밥, 더덕구이<br>
+        • 신축 이전 매장으로 백화점 식당가급 위생 관리
+      </div>
+      <div class="dining-card highlight">
+        <span class="dining-badge badge-opt1">저녁 1안 (추천)</span>
+        <b>벽계가든</b> (전주 시내 대형 가든)<br>
+        • 한우 불고기 전골, 갈비탕, 석갈비<br>
+        • 완벽한 위생과 룸 구비, 야간 운전 전 속 편한 식사
+      </div>
+      <div class="dining-card">
+        <span class="dining-badge">저녁 2안</span>
+        <b>프리미엄 소고기 버섯 샤브샤브</b><br>
+        • 맑은 육수와 데친 채소·소고기<br>
+        • 더부룩함 없이 소화가 잘되어 심야 운전에 최적
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <b>🚗 밤 11시 심야 귀경 팁:</b> 토요일 낮~저녁 극심했던 천안논산 및 서해안고속도로 정체가 밤 10시 이후 완전히 해소됩니다. 비가 내리므로 차간 거리를 넉넉히 두고 정안알밤휴게소에서 가볍게 스트레칭 후 복귀하시면 약 2시간 15분 만에 안전하게 의왕에 도착합니다.
+    </div>
+  </div>
+  <div class="page-footer">
+    <span>DAY 7 · 전주 실내 힐링 & 귀가</span>
+    <span>Page 8</span>
+  </div>
+</div>
+
+</body>
+</html>
