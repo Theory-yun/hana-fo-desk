@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "stars": 5, "category": "국내 부자보고서", "title": "2025 한국 부자 보고서 (Korea Wealth Report)", "desc": "금융자산 10억 원 이상 한국 부자의 자산 구조·부의 원천·차세대 승계 방식 분석", "org": "KB금융지주 경영연구소", "date": "연례 핵심백서", "url": "https://files-scs.pstatic.net/2025/12/23/FhQP9SHDXS/2025%20%ED%95%9C%EA%B5%AD%20%EB%B6%80%EC%9E%90%20%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf" },
+    { "stars": 5, "category": "국내 부자보고서", "title": "대한민국 웰스 리포트 — 초고액자산가 & 영리치", "desc": "초고액자산가(UHNW) 가문의 패밀리오피스 활용 트렌드 및 가업승계 수요", "org": "하나금융연구소", "date": "하나금융 공식발간", "url": "https://www.hanaif.re.kr/boardDetail.do?hmpeSeqNo=36521" },
+    { "stars": 5, "category": "글로벌 F/O 백서", "title": "UBS Global Family Office Report", "desc": "전 세계 싱글 패밀리오피스의 전략적 자산배분·가문 거버넌스·승계 표준 백서", "org": "UBS Global Wealth", "date": "글로벌 표준백서", "url": "https://advisors.ubs.com/mediahandler/media/808993/global-family-office-report-en-2026-single.pdf" },
+    { "stars": 5, "category": "글로벌 F/O 백서", "title": "J.P. Morgan Global Family Office Report", "desc": "대체투자 비중·AI 투자 테마·사이버보안·운영 비용 벤치마크", "org": "J.P. Morgan Private Bank", "date": "글로벌 IB 백서", "url": "https://privatebank.jpmorgan.com/nam/en/services/family-office/global-family-office-report" },
+    { "stars": 5, "category": "글로벌 F/O 백서", "title": "Goldman Sachs Family Office Investment Insights", "desc": "기관급 패밀리오피스 CIO들의 매크로 전망 및 다이렉트 딜 전략", "org": "Goldman Sachs", "date": "글로벌 CIO 서베이", "url": "https://www.goldmansachs.com/insights/articles/family-office-investment-insights-report" },
+    { "stars": 4, "category": "글로벌 F/O 백서", "title": "Knight Frank — The Wealth Report", "desc": "전 세계 UHNW 인구 이동 및 글로벌 프라임 부동산 투자 지표", "org": "Knight Frank Research", "date": "글로벌 부동산·웰스", "url": "https://www.knightfrank.com/wealthreport" },
+    { "stars": 5, "category": "가업승계·세무·신탁", "title": "PwC Global Family Office Deals Study & Tax Succession Guide", "desc": "가문 오너십 기업의 M&A·지주사 전환·가업승계 조세 전략", "org": "PwC Global / 삼일PwC", "date": "딜·세무·승계 백서", "url": "https://www.pwc.com/gx/en/services/family-business/family-office.html" },
+    { "stars": 4, "category": "가업승계·세무·신탁", "title": "국세청 가업승계 세무컨설팅 실무 해설", "desc": "가업상속공제 및 가업승계 증여세 과세특례 요건·사후관리 공식 가이드", "org": "대한민국 국세청(NTS)", "date": "공식 안내원문", "url": "https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?mi=2304&cntntsId=7710" }
+  ]
+}
